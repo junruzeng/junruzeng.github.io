@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dce2df"/><stop offset="1" stop-color="#aebbb5"/></linearGradient></defs>
+    <rect width="900" height="1100" fill="url(#g)"/>
+    <circle cx="450" cy="400" r="130" fill="#42564d" opacity=".12"/>
+    <rect x="220" y="570" width="460" height="260" rx="18" fill="#42564d" opacity=".10"/>
+    <text x="450" y="930" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" fill="#42564d" letter-spacing="4">PHOTO 01</text>
+    <text x="450" y="985" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#42564d" opacity=".8">Street / City</text>
+    </svg>
