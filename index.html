@@ -1,1 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Space</title>
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f8f5f0;
+            color: #39352f;
+            font-family: Georgia, "Noto Serif SC", serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 8%;
+            border-bottom: 1px solid #e5dfd5;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 75px auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero img {
+            width: 42%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .intro {
+            flex: 1;
+        }
+
+        .label {
+            letter-spacing: 4px;
+            font-size: 11px;
+            color: #8c7965;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            font-weight: normal;
+            margin: 20px 0;
+        }
+
+        .intro p {
+            line-height: 2;
+            color: #777067;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            border: 1px solid #39352f;
+            color: #39352f;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 90px auto;
+            padding: 0 25px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: normal;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .versions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .version-card {
+            padding: 30px;
+            background: #eee8df;
+        }
+
+        .version-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #6d5945;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid #e5dfd5;
+            color: #8c857b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 40px auto;
+                gap: 30px;
+            }
+
+            .hero img {
+                width: 100%;
+                max-height: 480px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .versions {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                margin: 60px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span>MY PERSONAL SPACE</span>
+        <div>
+            <a href=" ">About</a >
+            <a href="#photography">Photography</a >
+        </div>
+    </nav>
+
+    <div class="hero">
+        < img src="images/profile.jpg" alt="Personal portrait">
+
+        <div class="intro">
+            <div class="label">WELCOME TO MY WORLD</div>
+            <h1>Hello,<br>I'm Your Name.</h1>
+
+            <p>
+                A student who loves photography,
+                travelling and discovering the beauty
+                of everyday life.
+            </p >
+
+            <p>
+                This is my personal space, where I share
+                my story, experiences and favourite moments.
+            </p >
+
+            <a class="button" href="#about">DISCOVER MORE</a >
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="label">A LITTLE ABOUT ME</div>
+        <h2>About Me.</h2>
+
+        <p style="line-height: 2; color: #777067;">
+            Welcome to my personal website.
+            I enjoy exploring new places, learning new things
+            and capturing beautiful moments through photography.
+        </p >
+    </section>
+
+    <section id="photography">
+        <div class="label">MY VISUAL DIARY</div>
+        <h2>Photography.</h2>
+
+        <p style="color: #777067; margin-bottom: 30px;">
+            Little moments, beautiful memories.
+        </p >
+
+        <div class="gallery">
+            < img src="images/photo1.jpg" alt="Photography 1">
+            < img src="images/photo2.jpg" alt="Photography 2">
+            < img src="images/photo3.jpg" alt="Photography 3">
+        </div>
+    </section>
+
+    <section id="designs">
+        <div class="label">CHOOSE YOUR STYLE</div>
+        <h2>Explore My Website.</h2>
+
+        <div class="versions">
+            <div class="version-card">
+                <h3>C — Cream</h3>
+                <p>A soft, minimal and elegant design.</p >
+                <a href="cream.html">Explore Cream →</a >
+            </div>
+
+            <div class="version-card">
+                <h3>D — Magazine</h3>
+                <p>A creative layout inspired by photography magazines.</p >
+                <a href="magazine.html">Explore Magazine →</a >
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Made with love · My Personal Space
+    </footer>
+
+</body>
+</html>
