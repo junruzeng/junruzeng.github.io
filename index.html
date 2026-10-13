@@ -1,242 +1,641 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Space</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>个人主页 | Personal Portfolio</title>
 
-        body {
-            margin: 0;
-            background: #f8f5f0;
-            color: #39352f;
-            font-family: Georgia, "Noto Serif SC", serif;
-        }
+<meta name="description" content="个人简历与摄影作品集">
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 8%;
-            border-bottom: 1px solid #e5dfd5;
-        }
+<style>
+:root {
+    --bg: #f8f5ef;
+    --paper: #fffdf9;
+    --ink: #3d352d;
+    --muted: #81766a;
+    --line: #e8dfd3;
+    --accent: #9a7657;
+}
 
-        nav a {
-            color: inherit;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .hero {
-            max-width: 1100px;
-            margin: 75px auto;
-            padding: 0 25px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
 
-        .hero img {
-            width: 42%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            border-radius: 4px;
-        }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.8;
+}
 
-        .intro {
-            flex: 1;
-        }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        .label {
-            letter-spacing: 4px;
-            font-size: 11px;
-            color: #8c7965;
-        }
+.wrap {
+    width: min(1120px, 90%);
+    margin: auto;
+}
 
-        h1 {
-            font-size: clamp(38px, 6vw, 68px);
-            font-weight: normal;
-            margin: 20px 0;
-        }
+/* Navigation */
 
-        .intro p {
-            line-height: 2;
-            color: #777067;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 13px 25px;
-            border: 1px solid #39352f;
-            color: #39352f;
-            text-decoration: none;
-            font-size: 13px;
-        }
+.brand {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
 
-        section {
-            max-width: 1100px;
-            margin: 90px auto;
-            padding: 0 25px;
-        }
+.navlinks {
+    display: flex;
+    gap: 24px;
+    color: var(--muted);
+}
 
-        h2 {
-            font-size: 32px;
-            font-weight: normal;
-        }
+.navlinks a:hover {
+    color: var(--accent);
+}
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
+/* Hero */
 
-        .gallery img {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-            border-radius: 3px;
-        }
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 7%;
+    align-items: center;
+    padding: 78px 0 70px;
+}
 
-        .versions {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+.eyebrow {
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+}
 
-        .version-card {
-            padding: 30px;
-            background: #eee8df;
-        }
+.hero h1 {
+    font-family: Georgia, "Songti SC", serif;
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 18px 0;
+}
 
-        .version-card a {
-            display: inline-block;
-            margin-top: 10px;
-            color: #6d5945;
-        }
+.hero h1 span {
+    color: var(--accent);
+}
 
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            border-top: 1px solid #e5dfd5;
-            color: #8c857b;
-            font-size: 13px;
-        }
+.hero p {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 15px;
+}
 
-        @media (max-width: 650px) {
-            .hero {
-                flex-direction: column;
-                align-items: flex-start;
-                margin: 40px auto;
-                gap: 30px;
-            }
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
 
-            .hero img {
-                width: 100%;
-                max-height: 480px;
-            }
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid var(--ink);
+    border-radius: 30px;
+    font-size: 13px;
+    transition: 0.2s;
+}
 
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
+.btn:hover {
+    transform: translateY(-2px);
+}
 
-            .versions {
-                grid-template-columns: 1fr;
-            }
+.btn.primary {
+    background: var(--ink);
+    color: white;
+}
 
-            section {
-                margin: 60px auto;
-            }
-        }
-    </style>
+.portrait {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 48% 48% 12px 12px;
+    background: #e5dbcf;
+    box-shadow: 18px 18px 0 #eee6da;
+}
+
+/* Sections */
+
+section {
+    padding: 65px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 28px;
+}
+
+.section-head h2 {
+    font-family: Georgia, "Songti SC", serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: normal;
+    margin: 0;
+}
+
+.section-head h2 span {
+    font-size: 17px;
+    color: var(--accent);
+}
+
+.section-head p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 13px;
+}
+
+/* About */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.about-grid p {
+    margin-top: 0;
+    color: #6e6256;
+}
+
+.tags {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    border: 1px solid var(--line);
+    padding: 7px 12px;
+    border-radius: 99px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Resume */
+
+.resume-list {
+    display: grid;
+    gap: 16px;
+}
+
+.resume-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 25px;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+
+.resume-year {
+    color: var(--accent);
+    font-size: 13px;
+}
+
+.resume-item h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+}
+
+.resume-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Skills */
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    padding: 25px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+
+.skill-card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Photography */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.photo-card {
+    margin: 0;
+    background: var(--paper);
+    padding: 9px 9px 15px;
+    border: 1px solid var(--line);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #584a3814;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #e8dfd4;
+}
+
+.photo-card figcaption {
+    padding: 12px 5px 0;
+}
+
+.photo-card strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 17px;
+}
+
+.photo-card span {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+/* Contact */
+
+.contact {
+    background: #eee6da;
+    border-radius: 14px;
+    padding: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 34px;
+    margin: 0;
+}
+
+.contact p {
+    color: var(--muted);
+    margin: 4px 0 0;
+}
+
+/* Footer */
+
+footer {
+    padding: 30px 0 42px;
+    color: var(--muted);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    .navlinks {
+        gap: 12px;
+        font-size: 11px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 50px 0;
+    }
+
+    .portrait {
+        max-width: 420px;
+    }
+
+    .about-grid,
+    .resume-item {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 45px 0;
+    }
+
+    .section-head {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .contact {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .navlinks {
+        gap: 10px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <span>MY PERSONAL SPACE</span>
-        <div>
-            <a href=" ">About</a >
-            <a href="#photography">Photography</a >
-        </div>
-    </nav>
+<div class="wrap">
 
-    <div class="hero">
-        < img src="images/profile.jpg" alt="Personal portrait">
+<nav>
+    <a class="brand" href=" ">MY SPACE</a >
 
-        <div class="intro">
-            <div class="label">WELCOME TO MY WORLD</div>
-            <h1>Hello,<br>I'm Your Name.</h1>
+    <div class="navlinks">
+        <a href="#about">关于我</a >
+        <a href="#resume">个人简历</a >
+        <a href="#photography">摄影作品</a >
+        <a href="#contact">联系</a >
+    </div>
+</nav>
 
-            <p>
-                A student who loves photography,
-                travelling and discovering the beauty
-                of everyday life.
-            </p >
+<header class="hero">
 
-            <p>
-                This is my personal space, where I share
-                my story, experiences and favourite moments.
-            </p >
+    <div>
+        <div class="eyebrow">WELCOME TO MY WORLD</div>
 
-            <a class="button" href="#about">DISCOVER MORE</a >
+        <h1>
+            你好，我是<br>
+            <span>曾筠茹。</span>
+        </h1>
+
+        <p>
+            欢迎来到我的个人主页。我的mbti是isfp。
+            我喜欢摄影、旅行与阅读，在学习和实践中不断探索新的可能。
+            这里会分享我的经历、兴趣，以及镜头里的日常。
+        </p >
+
+        <div class="buttons">
+            <a class="btn primary" href="#photography">
+                浏览摄影作品 ↗
+            </a >
+
+            <a class="btn" href="#about">
+                了解更多
+            </a >
         </div>
     </div>
 
-    <section id="about">
-        <div class="label">A LITTLE ABOUT ME</div>
-        <h2>About Me.</h2>
+    <img
+        class="portrait"
+        src="images/photo7.png"
+        alt="个人照片"
+    >
 
-        <p style="line-height: 2; color: #777067;">
-            Welcome to my personal website.
-            I enjoy exploring new places, learning new things
-            and capturing beautiful moments through photography.
-        </p >
-    </section>
+</header>
 
-    <section id="photography">
-        <div class="label">MY VISUAL DIARY</div>
-        <h2>Photography.</h2>
+<section id="about">
 
-        <p style="color: #777067; margin-bottom: 30px;">
-            Little moments, beautiful memories.
-        </p >
+    <div class="section-head">
+        <h2>关于我 <span>/ About</span></h2>
+        <p>Curious mind, thoughtful eye.</p >
+    </div>
 
-        <div class="gallery">
-            < img src="images/photo1.jpg" alt="Photography 1">
-            < img src="images/photo2.jpg" alt="Photography 2">
-            < img src="images/photo3.jpg" alt="Photography 3">
+    <div class="about-grid">
+
+        <div>
+            <p>
+                我目前就读于广东财经大学，学习物流管理（数智供应链）专业。
+                在学习专业知识的同时，我也喜欢探索生活中不同的可能性。
+                摄影让我学会观察与记录，旅行让我接触不同的风景，而阅读则让我不断拓展自己的视野。
+            </p >
+
+            <p>
+                我希望在学习和生活中不断积累经验，
+                尝试新的可能，并把每一次经历变成成长的动力。
+            </p >
         </div>
-    </section>
 
-    <section id="designs">
-        <div class="label">CHOOSE YOUR STYLE</div>
-        <h2>Explore My Website.</h2>
-
-        <div class="versions">
-            <div class="version-card">
-                <h3>C — Cream</h3>
-                <p>A soft, minimal and elegant design.</p >
-                <a href="cream.html">Explore Cream →</a >
+        <div>
+            <div class="tags">
+                <span class="tag">摄影 Photography</span>
+                <span class="tag">旅行 Travel</span>
+                <span class="tag">阅读 Read</span>
+                <span class="tag">学习 Learning</span>
             </div>
 
-            <div class="version-card">
-                <h3>D — Magazine</h3>
-                <p>A creative layout inspired by photography magazines.</p >
-                <a href="magazine.html">Explore Magazine →</a >
+            <p style="margin-top:22px">
+                这里是我的个人空间，也是我记录成长与灵感的小小角落。
+            </p >
+        </div>
+
+    </div>
+
+</section>
+
+<section id="resume">
+
+    <div class="section-head">
+        <h2>个人简历 <span>/ Resume</span></h2>
+        <p>A little story about my journey.</p >
+    </div>
+
+    <div class="resume-list">
+
+        <div class="resume-item">
+            <div class="resume-year">EDUCATION</div>
+            <div>
+                <h3>教育背景</h3>
+                <p>
+                    广东财经大学 · 物流管理（数智供应链）<br>
+                    2025年9月 — 至今
+                </p >
             </div>
         </div>
-    </section>
 
-    <footer>
-        Made with love · My Personal Space
-    </footer>
+        <div class="resume-item">
+            <div class="resume-year">EXPERIENCE</div>
+            <div>
+                <h3>校园经历</h3>
+                <p>
+                    参加过新媒体部，曾参与相关摄影和文案工作，在实际参与中锻炼观察能力、沟通能力与团队协作能力。
+                    参与志愿服务活动，在实践中增强责任意识，并通过活动接触不同的人和事，积累校园实践经验。
+                </p >
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <div class="section-head">
+        <h2>技能与兴趣 <span>/ Skills</span></h2>
+        <p>Things I enjoy and keep learning.</p >
+    </div>
+
+    <div class="skill-grid">
+
+        <div class="skill-card">
+            <h3>语言能力</h3>
+            <p>大学英语四级。</p >
+        </div>
+
+        <div class="skill-card">
+            <h3>办公与设计</h3>
+            <p>熟练运用office相关软件。</p >
+        </div>
+
+        <div class="skill-card">
+            <h3>兴趣爱好</h3>
+            <p>摄影、旅行、阅读。</p >
+        </div>
+
+    </div>
+
+</section>
+
+<section id="photography">
+
+    <div class="section-head">
+        <h2>镜头里的世界 <span>/ Photography</span></h2>
+        <p>Selected moments · 摄影作品选集</p >
+    </div>
+
+    <div class="gallery">
+
+        <figure class="photo-card">
+            <img src="images/photo1.jpg" alt="城市摄影作品">
+            <figcaption>
+                <span>STREET / 01</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="images/photo2.jpg" alt="自然摄影作品">
+            <figcaption>
+                <span>NATURE / 02</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="images/photo3.jpg" alt="日常摄影作品">
+            <figcaption>
+                <span>DAILY / 03</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="images/photo4.jpg" alt="旅行摄影作品">
+            <figcaption>
+                <span>TRAVEL / 04</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="images/photo5.jpg" alt="人物摄影作品">
+            <figcaption>
+                <span>DETAILS / 05</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="images/photo6.jpg" alt="生活摄影作品">
+            <figcaption>
+                <span>STORIES / 06</span>
+            </figcaption>
+        </figure>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:13px;margin-top:20px">
+        这里展示我的摄影作品。未来可以随时替换成自己的照片，
+        记录旅行、生活和每一个值得珍藏的瞬间。
+    </p >
+
+</section>
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div>
+            <h2>保持联系。</h2>
+            <p>Let's connect and create something meaningful.</p >
+        </div>
+
+        <a
+            class="btn primary"
+            href="mailto:205822186@qq.com"
+        >
+            联系我 / Contact ↗
+        </a >
+
+    </div>
+
+</section>
+
+<footer>
+    <span>© 2026 zjr · Personal Portfolio</span>
+    <span>Made with care / 用心记录</span>
+</footer>
+
+</div>
 
 </body>
 </html>
